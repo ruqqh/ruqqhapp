@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUQQH | Software, Systems & Cybersecurity</title>
+    <meta name="description" content="RUQQH architect resilient software, secure systems, and high-performance infrastructure for the modern tech landscape." />
+    <meta name="keywords" content="cybersecurity, software engineering, systems architecture, OS optimization, cloud performance" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RUQQH | Systems Built Secure" />
+    <meta property="og:description" content="Architecting resilient software and impregnable systems for the modern enterprise." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="RUQQH | Systems Built Secure" />
+    <meta property="twitter:description" content="Architecting resilient software and impregnable systems for the modern enterprise." />
+    
+    <script>
+      // Diagnostic check: If this prints, HTML is loading
+      console.log('RUQQH Boot Protocol Initiated');
+      
+      // Global error handler to capture boot failures
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        console.error('CRITICAL BOOT ERROR:', msg, '\nAt:', url, ':', lineNo, ':', columnNo);
+        const root = document.getElementById('root');
+        if (root && !root.innerHTML) {
+          root.innerHTML = '<div style="color: white; background: #0a0a0a; padding: 20px; font-family: monospace; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">' +
+            '<h1 style="color: #0047FF; font-size: 4rem; margin: 0;">SYSTEM HALT</h1>' +
+            '<p style="letter-spacing: 0.5em; opacity: 0.5;">BOOT_SEQUENCE_FAILURE</p>' +
+            '<div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 4px; margin-top: 20px; max-width: 80%; overflow: auto;">' +
+            '<code style="color: #ff4444;">' + msg + '</code>' +
+            '</div>' +
+            '<p style="margin-top: 20px; opacity: 0.3; font-size: 0.8rem;">REASON: Check browser console for full stack trace.</p>' +
+            '</div>';
+        }
+        return false;
+      };
+
+      // Provide a safe 'global' object
+      window.global = window.global || {};
+      
+      // Prevent polyfill crashes on read-only fetch
+      try {
+        if (window.fetch && Object.getOwnPropertyDescriptor(window, 'fetch')?.configurable === true) {
+          const originalFetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            configurable: false,
+            enumerable: true,
+            get: () => originalFetch,
+            set: () => { console.warn('Blocked attempt to overwrite window.fetch'); }
+          });
+        }
+      } catch (e) {
+        console.warn('Fetch lock skipped:', e);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
