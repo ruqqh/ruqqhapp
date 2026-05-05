@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+
+  --color-bg: #050505;
+  --color-ink: #FFFFFF;
+  --color-accent: #0047FF;
+  --color-subtle: rgba(255, 255, 255, 0.4);
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-bg text-ink;
+  }
+}
